@@ -1,0 +1,25 @@
+{
+    "name": "ams2logger",
+    "type": "commonjs",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "cd src && node index.js",
+        "build": "npx pkg src/index.js --config package.json --output dist/%npm_package_name%_%npm_package_version%.exe && npm run post-build",
+        "post-build": "npx copyfiles --up 1 src/resources/**/* dist"
+    },
+    "dependencies": {
+        "@clack/prompts": "^0.2.0",
+        "dotenv": "^16.4.5",
+        "picocolors": "^1.0.0"
+    },
+    "devDependencies": {
+        "@yao-pkg/pkg": "^5.11.5",
+        "copyfiles": "^2.4.1"
+    },
+    "pkg": {
+        "targets": [
+            "latest-win"
+        ],
+        "outputPath": "dist"
+    }
+}
